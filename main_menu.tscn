@@ -1,0 +1,133 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdo52lw26i1pn"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_fk86w"]
+
+[node name="MainMenu" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.273873, 0.273873, 0.273873, 0.686275)
+script = ExtResource("1_fk86w")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(864, 486)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="MainMenu" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Start-NextButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/MainMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 64
+text = "Start"
+
+[node name="LevelsButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/MainMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 64
+text = "Levels"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/MainMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 64
+text = "Quit"
+
+[node name="LevelsMenu" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "<"
+
+[node name="LevelsVBox" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LevelsLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Levels"
+horizontal_alignment = 1
+
+[node name="VScrollBar" type="ScrollContainer" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TestButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Test Level Button"
+
+[node name="TestButton2" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Test Level Button"
+
+[node name="TestButton3" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Test Level Button"
+
+[node name="TestButton4" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Test Level Button"
+
+[node name="TestButton5" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Test Level Button"
+
+[node name="TestButton6" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Test Level Button"
+
+[node name="TestButton7" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Test Level Button"
+
+[node name="TestButton8" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Test Level Button"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/MainMenu/Start-NextButton" to="." method="_on_start_next_button_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/MainMenu/LevelsButton" to="." method="_on_levels_button_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/MainMenu/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/BackButton" to="." method="_on_back_button_pressed"]
