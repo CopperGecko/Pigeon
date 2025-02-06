@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bouvgsi6u3oau"]
+
+[ext_resource type="Script" path="res://Levels/levels.gd" id="1_ifv3e"]
+[ext_resource type="PackedScene" uid="uid://c6s3yjl7hgifr" path="res://Player/player.tscn" id="1_ltrjs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v57jk"]
+size = Vector2(500, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lhgax"]
+size = Vector3(500, 50, 1)
+
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_ifv3e")
+
+[node name="LevelLabel" type="Label" parent="."]
+offset_right = 59.0
+offset_bottom = 23.0
+text = "LEVEL 2"
+
+[node name="FloorStaticBody" type="StaticBody2D" parent="."]
+position = Vector2(580, 575)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorStaticBody"]
+shape = SubResource("RectangleShape2D_v57jk")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="FloorStaticBody/CollisionShape2D"]
+modulate = Color(0, 0.423529, 1, 1)
+mesh = SubResource("BoxMesh_lhgax")
+
+[node name="Player" parent="." instance=ExtResource("1_ltrjs")]
+position = Vector2(585, 310)

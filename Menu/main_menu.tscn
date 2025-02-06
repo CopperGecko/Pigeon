@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bdo52lw26i1pn"]
 
-[ext_resource type="Script" path="res://main_menu.gd" id="1_fk86w"]
+[ext_resource type="Script" path="res://Menu/main_menu.gd" id="1_fk86w"]
 
 [node name="MainMenu" type="ColorRect"]
 anchors_preset = 15
@@ -74,54 +74,54 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar"]
+[node name="LevelScrollContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TestButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar/VBoxContainer"]
+[node name="TestButton1" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar/LevelScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "Test Level Button"
 
-[node name="TestButton2" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar/VBoxContainer"]
+[node name="TestButton2" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar/LevelScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "Test Level Button"
 
-[node name="TestButton3" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar/VBoxContainer"]
+[node name="TestButton3" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar/LevelScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "Test Level Button"
 
-[node name="TestButton4" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar/VBoxContainer"]
+[node name="TestButton4" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar/LevelScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "Test Level Button"
 
-[node name="TestButton5" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar/VBoxContainer"]
+[node name="TestButton5" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar/LevelScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "Test Level Button"
 
-[node name="TestButton6" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar/VBoxContainer"]
+[node name="TestButton6" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar/LevelScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "Test Level Button"
 
-[node name="TestButton7" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar/VBoxContainer"]
+[node name="TestButton7" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar/LevelScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "Test Level Button"
 
-[node name="TestButton8" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar/VBoxContainer"]
+[node name="TestButton8" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/VScrollBar/LevelScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
