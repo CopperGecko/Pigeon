@@ -1,19 +1,32 @@
 [gd_scene load_steps=4 format=3 uid="uid://c6s3yjl7hgifr"]
 
-[ext_resource type="Script" path="res://Player/player.gd" id="1_c4iuk"]
+[ext_resource type="Script" uid="uid://drp70uyekd8gf" path="res://Player/player.gd" id="1_c4iuk"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5rngl"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hvfyp"]
+radius = 20.0
+height = 60.0
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_4as4y"]
-radius = 10.0
-height = 30.0
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_l8h54"]
+radius = 20.0
+height = 60.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_c4iuk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_5rngl")
+shape = SubResource("CapsuleShape2D_hvfyp")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="CollisionShape2D"]
-modulate = Color(0, 0.6, 0, 1)
-mesh = SubResource("CapsuleMesh_4as4y")
+modulate = Color(0, 0.588235, 0, 1)
+mesh = SubResource("CapsuleMesh_l8h54")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(20, 0)
+target_position = Vector2(-40, 0)
+collision_mask = 2
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false

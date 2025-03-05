@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bouvgsi6u3oau"]
 
-[ext_resource type="Script" path="res://Levels/levels.gd" id="1_ifv3e"]
+[ext_resource type="Script" uid="uid://cxyncyw1cekwa" path="res://Levels/levels.gd" id="1_ifv3e"]
 [ext_resource type="PackedScene" uid="uid://c6s3yjl7hgifr" path="res://Player/player.tscn" id="1_ltrjs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v57jk"]
@@ -16,6 +16,7 @@ script = ExtResource("1_ifv3e")
 offset_right = 59.0
 offset_bottom = 23.0
 text = "LEVEL 2"
+metadata/_edit_use_anchors_ = true
 
 [node name="FloorStaticBody" type="StaticBody2D" parent="."]
 position = Vector2(580, 575)
@@ -28,4 +29,4 @@ modulate = Color(0, 0.423529, 1, 1)
 mesh = SubResource("BoxMesh_lhgax")
 
 [node name="Player" parent="." instance=ExtResource("1_ltrjs")]
-position = Vector2(585, 310)
+position = Vector2(542, 200)

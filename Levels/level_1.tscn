@@ -1,31 +1,86 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3o7rmvv6i0dk"]
+[gd_scene load_steps=9 format=3 uid="uid://c3o7rmvv6i0dk"]
 
-[ext_resource type="Script" path="res://Levels/levels.gd" id="1_83aim"]
+[ext_resource type="Script" uid="uid://cxyncyw1cekwa" path="res://Levels/levels.gd" id="1_83aim"]
 [ext_resource type="PackedScene" uid="uid://c6s3yjl7hgifr" path="res://Player/player.tscn" id="1_ei5en"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v57jk"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mhv4"]
 size = Vector2(500, 50)
 
-[sub_resource type="BoxMesh" id="BoxMesh_lhgax"]
+[sub_resource type="BoxMesh" id="BoxMesh_3mhv4"]
 size = Vector3(500, 50, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dilhk"]
+size = Vector2(150, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dilhk"]
+size = Vector3(150, 50, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rf6l5"]
+size = Vector2(50, 75)
+
+[sub_resource type="BoxMesh" id="BoxMesh_syshm"]
+size = Vector3(50, 75, 1)
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_83aim")
 
 [node name="Player" parent="." instance=ExtResource("1_ei5en")]
-position = Vector2(585, 310)
-
-[node name="LevelLabel" type="Label" parent="."]
-offset_right = 59.0
-offset_bottom = 23.0
-text = "LEVEL 1"
+position = Vector2(583, 517)
 
 [node name="FloorStaticBody" type="StaticBody2D" parent="."]
 position = Vector2(580, 575)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorStaticBody"]
-shape = SubResource("RectangleShape2D_v57jk")
+shape = SubResource("RectangleShape2D_3mhv4")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="FloorStaticBody/CollisionShape2D"]
 modulate = Color(0, 0.423529, 1, 1)
-mesh = SubResource("BoxMesh_lhgax")
+mesh = SubResource("BoxMesh_3mhv4")
+
+[node name="MiddleStaticBody" type="StaticBody2D" parent="."]
+position = Vector2(583, 458)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiddleStaticBody"]
+shape = SubResource("RectangleShape2D_dilhk")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="MiddleStaticBody/CollisionShape2D"]
+modulate = Color(0, 0.423529, 1, 1)
+mesh = SubResource("BoxMesh_dilhk")
+
+[node name="LeftStaticBody" type="StaticBody2D" parent="."]
+position = Vector2(341, 341)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftStaticBody"]
+shape = SubResource("RectangleShape2D_dilhk")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="LeftStaticBody/CollisionShape2D"]
+modulate = Color(0, 0.423529, 1, 1)
+mesh = SubResource("BoxMesh_dilhk")
+
+[node name="RightStaticBody" type="StaticBody2D" parent="."]
+position = Vector2(806, 337)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightStaticBody"]
+shape = SubResource("RectangleShape2D_dilhk")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="RightStaticBody/CollisionShape2D"]
+modulate = Color(0, 0.423529, 1, 1)
+mesh = SubResource("BoxMesh_dilhk")
+
+[node name="LevelLabel" type="Label" parent="."]
+offset_right = 59.0
+offset_bottom = 23.0
+text = "LEVEL 1"
+metadata/_edit_use_anchors_ = true
+
+[node name="Interactable" type="Area2D" parent="." groups=["Interactable"]]
+position = Vector2(338, 265)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+shape = SubResource("RectangleShape2D_rf6l5")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Interactable/CollisionShape2D"]
+modulate = Color(1, 0.482353, 1, 0.435294)
+mesh = SubResource("BoxMesh_syshm")
