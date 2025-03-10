@@ -111,4 +111,5 @@ func start_next():
 func level_done():
 	levels_unlock = int(str(get_parent().get_child(1).name).trim_prefix("Level")) + 1
 	gen_levels()
+	start_next()
 	

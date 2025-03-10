@@ -1,32 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://bouvgsi6u3oau"]
+[gd_scene load_steps=4 format=4 uid="uid://bouvgsi6u3oau"]
 
 [ext_resource type="Script" uid="uid://cxyncyw1cekwa" path="res://Levels/levels.gd" id="1_ifv3e"]
 [ext_resource type="PackedScene" uid="uid://c6s3yjl7hgifr" path="res://Player/player.tscn" id="1_ltrjs"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v57jk"]
-size = Vector2(500, 50)
-
-[sub_resource type="BoxMesh" id="BoxMesh_lhgax"]
-size = Vector3(500, 50, 1)
+[ext_resource type="TileSet" uid="uid://ro5jpofunyqj" path="res://Levels/TileSet Test 1.tres" id="3_arsda"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_ifv3e")
 
 [node name="LevelLabel" type="Label" parent="."]
-offset_right = 59.0
-offset_bottom = 23.0
+offset_left = 520.0
+offset_top = 96.0
+offset_right = 579.0
+offset_bottom = 119.0
 text = "LEVEL 2"
 metadata/_edit_use_anchors_ = true
 
-[node name="FloorStaticBody" type="StaticBody2D" parent="."]
-position = Vector2(580, 575)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorStaticBody"]
-shape = SubResource("RectangleShape2D_v57jk")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="FloorStaticBody/CollisionShape2D"]
-modulate = Color(0, 0.423529, 1, 1)
-mesh = SubResource("BoxMesh_lhgax")
-
 [node name="Player" parent="." instance=ExtResource("1_ltrjs")]
 position = Vector2(542, 200)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(16, 16)
+tile_map_data = PackedByteArray("AAAJAAUAAAAGAAAAAAAKAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAMAAUAAAAAAAAAAAANAAUAAAAHAAAAAAANAAYAAAAOAAAAAAAMAAYAAAAJAAEAAAALAAYAAAAJAAEAAAAKAAYAAAAQAAAAAAAJAAYAAAAPAAAAAAA=")
+tile_set = ExtResource("3_arsda")
