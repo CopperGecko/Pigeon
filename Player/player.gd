@@ -9,36 +9,58 @@ const JUMP_VELOCITY := -550.0
 
 
 func _ready() -> void:
+	# sets up the camera becasue of how the level system works
 	$Camera2D.make_current()
 
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	# adds the gravity and jump animation while in the air
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		
+		# plays the jump animation / changes the sprite to jumping
 		anim.play("Jump")
+		
+		# swaps the sprite (change to different sprites later) to tell if up or down velocity
+		if velocity.y < 0:
+			anim.flip_v = true
+		elif velocity.y > 0:
+			anim.flip_v = false
 
-	# Handle jump.
+	# handle jumping
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+	
+	# makes the jump stop early if you let go early to have more control
+	if Input.is_action_just_released("jump") and velocity.y < 0:
+		velocity.y = lerp(velocity.y, 0.0, delta * 20)
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
 		
+		# flips the player when they face other ways
 		if direction > 0:
 			anim.flip_h = false
 		elif direction < 0:
 			anim.flip_h = true
 		
+		# plays the run animation if you are moving on the ground
 		if is_on_floor():
 			anim.play("Run")
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = lerp(velocity.x, 0.0, delta * 15)
+		
+		# makes the slow to 0 become 0 after a bit instead of really small, for ease of use
+		if velocity.x > -0.01 and velocity.x < 0.01:
+			velocity.x = 0
+		
+		# plays the idle animation if you arent doing anything
 		if is_on_floor():
 			anim.play("Idle")
 	
+	# checker for hitting an interactable
 	if $ShapeCast2D.is_colliding():
 		var interacted = $ShapeCast2D.get_collider(0)
 		interacted.get_parent().unlocked()
