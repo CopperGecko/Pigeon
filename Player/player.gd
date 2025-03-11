@@ -18,14 +18,11 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		
-		# plays the jump animation / changes the sprite to jumping
-		anim.play("Jump")
-		
-		# swaps the sprite (change to different sprites later) to tell if up or down velocity
+		# swaps the sprite whether you are falling or going up
 		if velocity.y < 0:
-			anim.flip_v = true
+			anim.play("Jump_up")
 		elif velocity.y > 0:
-			anim.flip_v = false
+			anim.play("Fall_down")
 
 	# handle jumping
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -33,7 +30,7 @@ func _physics_process(delta: float) -> void:
 	
 	# makes the jump stop early if you let go early to have more control
 	if Input.is_action_just_released("jump") and velocity.y < 0:
-		velocity.y = lerp(velocity.y, 0.0, delta * 20)
+		velocity.y = lerp(velocity.y, 50.0, delta * 20)
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("ui_left", "ui_right")
