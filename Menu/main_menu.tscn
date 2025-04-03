@@ -1,9 +1,100 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdo52lw26i1pn"]
+[gd_scene load_steps=7 format=3 uid="uid://bdo52lw26i1pn"]
 
 [ext_resource type="Script" uid="uid://6kmu3e6svju4" path="res://Menu/main_menu.gd" id="1_fk86w"]
 [ext_resource type="Theme" uid="uid://d2om8ytfj0dkp" path="res://Menu/main_font.tres" id="2_csko2"]
 
+[sub_resource type="Animation" id="Animation_ci1se"]
+resource_name = "Fade in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ohgnh"]
+resource_name = "Fade out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_dtkyu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ohgnh"]
+_data = {
+&"Fade in": SubResource("Animation_ci1se"),
+&"Fade out": SubResource("Animation_ohgnh"),
+&"RESET": SubResource("Animation_dtkyu")
+}
+
 [node name="MainMenu" type="ColorRect"]
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -32,7 +123,6 @@ theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
 [node name="MainMenu" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Start_NextButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/MainMenu"]
@@ -54,6 +144,7 @@ theme_override_font_sizes/font_size = 64
 text = "Quit"
 
 [node name="LevelsMenu" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+visible = false
 layout_mode = 2
 
 [node name="BackButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/LevelsMenu"]
@@ -128,6 +219,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "Test Level Button"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ohgnh")
+}
 
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/MainMenu/Start_NextButton" to="." method="_on_start_next_button_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/MainMenu/LevelsButton" to="." method="_on_levels_button_pressed"]

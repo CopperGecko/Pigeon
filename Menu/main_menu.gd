@@ -10,6 +10,7 @@ extends ColorRect
 
 # level menu opened and levels unlocked
 var levels_open := false
+var level_done_menu := false
 @export var levels_unlock := 1
 
 # level number, path to level
@@ -21,6 +22,7 @@ var all_levels = {
 
 func _ready() -> void:
 	start_next()
+	$AnimationPlayer.play("Fade in")
 
 
 func _process(delta: float) -> void:
@@ -96,8 +98,12 @@ func gen_levels():
 
 # sends you to the level of your choosing on press
 func level_buttons(path):
+	$CenterContainer/PanelContainer/MarginContainer/MainMenu/Start_NextButton.disabled = true
+	$AnimationPlayer.play("Fade out")
+	await get_tree().create_timer(0.5).timeout
 	var instance = path.instantiate()
 	get_parent().add_child(instance)
+	$CenterContainer/PanelContainer/MarginContainer/MainMenu/Start_NextButton.disabled = false
 
 
 # makes the start_next button display proper text for your progress
@@ -108,8 +114,12 @@ func start_next():
 		find_child("Start_NextButton").text = "Next"
 
 
-func level_done():
-	levels_unlock = int(str(get_parent().get_child(1).name).trim_prefix("Level")) + 1
+func level_done(why):
+	$AnimationPlayer.play("Fade in")
+	
+	if why == "complete":
+		levels_unlock = int(str(get_parent().get_child(1).name).trim_prefix("Level")) + 1
+		start_next()
+	
 	gen_levels()
-	start_next()
 	
