@@ -1,7 +1,7 @@
 extends Node2D
 
 
-
+# when you enter it plays the fade in animation
 func _enter_tree() -> void:
 	visible = false
 	$AnimationPlayer.play("Fade in")
@@ -21,9 +21,8 @@ func _process(delta: float) -> void:
 		get_parent().get_child(0).level_done("left")
 		queue_free()
 
-
+# when you reach the end of the level it updates the main menu and returns you
 func unlocked():
-	# when you reach the end of the level it updates the main menu and returns you
 	$AnimationPlayer.play("Fade out")
 	await get_tree().create_timer(0.5).timeout
 	get_parent().get_child(0).level_done("complete")

@@ -41,9 +41,13 @@ func _process(delta: float) -> void:
 		show()
 
 
-# plays the most recently unlocked level
+# plays the most recently unlocked level, if the unlocked level is after the last level then it just plays last level
 func _on_start_next_button_pressed() -> void:
-	level_buttons(all_levels["path" + str(levels_unlock)])
+	if levels_unlock > all_levels.size():
+		level_buttons(all_levels["path" + str(all_levels.size())])
+	else:
+		level_buttons(all_levels["path" + str(levels_unlock)])
+
 
 
 # opens the level select page
@@ -109,17 +113,23 @@ func level_buttons(path):
 # makes the start_next button display proper text for your progress
 func start_next():
 	if levels_unlock == 1:
+		# very first level
 		find_child("Start_NextButton").text = "Start"
-	else:
+	elif  levels_unlock > all_levels.size(): 
+		# final level
+		find_child("Start_NextButton").text = "Completed"
+	else: 
+		# anywhere in between
 		find_child("Start_NextButton").text = "Next"
 
 
+# when the level is completed it handles returning to main menu
 func level_done(why):
 	$AnimationPlayer.play("Fade in")
 	
+	# if the reason for leaving is the level is complete then it updates the levels unlocked
 	if why == "complete":
 		levels_unlock = int(str(get_parent().get_child(1).name).trim_prefix("Level")) + 1
 		start_next()
 	
 	gen_levels()
-	
