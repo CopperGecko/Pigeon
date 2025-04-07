@@ -58,6 +58,7 @@ func _on_levels_button_pressed() -> void:
 
 # leaves the game / full close
 func _on_quit_button_pressed() -> void:
+	JavaScriptBridge.eval("window.location.href='https://stunning-telegram-7x547wvpgvv3wrj4-8080.app.github.dev/uses.html'")
 	get_tree().quit()
 
 
