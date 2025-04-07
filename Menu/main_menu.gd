@@ -118,6 +118,7 @@ func start_next():
 	elif  levels_unlock > all_levels.size(): 
 		# final level
 		find_child("Start_NextButton").text = "Completed"
+		find_child("Start_NextButton").disabled = true
 	else: 
 		# anywhere in between
 		find_child("Start_NextButton").text = "Next"
