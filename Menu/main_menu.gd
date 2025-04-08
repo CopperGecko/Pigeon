@@ -55,7 +55,6 @@ func _on_start_next_button_pressed() -> void:
 		level_buttons(all_levels["path" + str(levels_unlock)])
 
 
-
 # opens the level select page
 func _on_levels_button_pressed() -> void:
 	levels_open = true
@@ -64,6 +63,7 @@ func _on_levels_button_pressed() -> void:
 
 # leaves the game / full close
 func _on_quit_button_pressed() -> void:
+	# sends you back to the website before
 	JavaScriptBridge.eval("window.location.href='https://stunning-telegram-7x547wvpgvv3wrj4-8080.app.github.dev/uses.html'")
 	get_tree().quit()
 

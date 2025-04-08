@@ -109,6 +109,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 6.0
 
 [node name="ShapeCast2D" type="ShapeCast2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_l8h54")
 target_position = Vector2(0, 0)
 collision_mask = 2
@@ -116,4 +117,4 @@ collision_mask = 2
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3.75, 3.75)
 sprite_frames = SubResource("SpriteFrames_l8h54")
-animation = &"Jump_up"
+animation = &"Run"
