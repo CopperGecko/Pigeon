@@ -21,7 +21,13 @@ var all_levels = {
 
 
 func _ready() -> void:
+	# makes the physics really smooth
+	Engine.physics_ticks_per_second = DisplayServer.screen_get_refresh_rate()
+	
+	# updates the start_next button
 	start_next()
+	
+	# fades in the screen
 	$AnimationPlayer.play("Fade in")
 
 

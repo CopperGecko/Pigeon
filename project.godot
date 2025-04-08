@@ -34,6 +34,10 @@ jump={
 2d_physics/layer_1="Solid Objects"
 2d_physics/layer_2="Finish Line"
 
+[physics]
+
+common/physics_ticks_per_second=144
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
