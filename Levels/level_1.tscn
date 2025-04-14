@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://c3o7rmvv6i0dk"]
+[gd_scene load_steps=15 format=4 uid="uid://c3o7rmvv6i0dk"]
 
 [ext_resource type="Script" uid="uid://cxyncyw1cekwa" path="res://Levels/levels.gd" id="1_83aim"]
 [ext_resource type="PackedScene" uid="uid://c6s3yjl7hgifr" path="res://Player/player.tscn" id="1_ei5en"]
 [ext_resource type="TileSet" uid="uid://ro5jpofunyqj" path="res://Levels/TileSet Test 1.tres" id="3_3mhv4"]
+[ext_resource type="Texture2D" uid="uid://cg0ed1jot47bi" path="res://Assets/Background Test 1.png" id="4_rf6l5"]
+[ext_resource type="Texture2D" uid="uid://tws5yqqrcq81" path="res://Assets/Background Test 2.png" id="5_rfktq"]
+[ext_resource type="Texture2D" uid="uid://tpwb8l7n4o7j" path="res://Assets/Background Test 3.png" id="6_0urlm"]
 
 [sub_resource type="Animation" id="Animation_syshm"]
 resource_name = "Fade in"
@@ -82,6 +85,204 @@ _data = {
 &"RESET": SubResource("Animation_rf6l5")
 }
 
+[sub_resource type="Animation" id="Animation_0urlm"]
+resource_name = "Fade in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FarBackground/Back1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FarBackground/Back1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MidBackground/Back2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MidBackground/Back2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ForeBackground/Back3:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ForeBackground/Back3:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_rfktq"]
+resource_name = "Fade out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FarBackground/Back1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MidBackground/Back2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ForeBackground/Back3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_77x7w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FarBackground/Back1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FarBackground/Back1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MidBackground/Back2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MidBackground/Back2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ForeBackground/Back3:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ForeBackground/Back3:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xoyoh"]
+_data = {
+&"Fade in": SubResource("Animation_0urlm"),
+&"Fade out": SubResource("Animation_rfktq"),
+&"RESET": SubResource("Animation_77x7w")
+}
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_83aim")
 
@@ -96,4 +297,43 @@ tile_set = ExtResource("3_3mhv4")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_syshm")
+}
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2(0, -640)
+transform = Transform2D(1, 0, 0, 1, 0, -640)
+
+[node name="FarBackground" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Back1" type="Sprite2D" parent="ParallaxBackground/FarBackground"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(10, 15)
+texture = ExtResource("4_rf6l5")
+centered = false
+
+[node name="MidBackground" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Back2" type="Sprite2D" parent="ParallaxBackground/MidBackground"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(10, 15)
+texture = ExtResource("5_rfktq")
+centered = false
+
+[node name="ForeBackground" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Back3" type="Sprite2D" parent="ParallaxBackground/ForeBackground"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(10, 15)
+texture = ExtResource("6_0urlm")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground"]
+libraries = {
+&"": SubResource("AnimationLibrary_xoyoh")
 }

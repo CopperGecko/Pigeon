@@ -5,6 +5,7 @@ extends Node2D
 func _enter_tree() -> void:
 	visible = false
 	$AnimationPlayer.play("Fade in")
+	$ParallaxBackground/AnimationPlayer.play("Fade in")
 
 
 func _process(delta: float) -> void:
@@ -15,6 +16,7 @@ func _process(delta: float) -> void:
 		
 		# plays animiation of fade out while leaving
 		$AnimationPlayer.play("Fade out")
+		$ParallaxBackground/AnimationPlayer.play("Fade out")
 		await get_tree().create_timer(0.5).timeout
 		
 		# tells the main menu to return and fade in while the level leaves
@@ -24,6 +26,7 @@ func _process(delta: float) -> void:
 # when you reach the end of the level it updates the main menu and returns you
 func unlocked():
 	$AnimationPlayer.play("Fade out")
+	$ParallaxBackground/AnimationPlayer.play("Fade out")
 	await get_tree().create_timer(0.5).timeout
 	get_parent().get_child(0).level_done("complete")
 	queue_free()
