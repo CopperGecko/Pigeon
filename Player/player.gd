@@ -7,7 +7,6 @@ extends CharacterBody2D
 const SPEED := 300.0
 const JUMP_VELOCITY := -550.0
 
-
 func _ready() -> void:
 	# sets up the camera becasue of how the level system works
 	$Camera2D.make_current()
@@ -25,7 +24,7 @@ func _physics_process(delta: float) -> void:
 			anim.play("Fall_down")
 	
 	# handle jumping
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or !$CoyoteTimer.is_stopped()):
 		velocity.y = JUMP_VELOCITY
 	
 	# Get the input direction and handle the movement/deceleration.
@@ -58,4 +57,11 @@ func _physics_process(delta: float) -> void:
 		var interacted = $ShapeCast2D.get_collider(0)
 		interacted.get_parent().unlocked()
 	
+	# gets if the player is on the floor before move_and_slide
+	var was_on_floor = is_on_floor()
+	
 	move_and_slide()
+	
+	# after move and slide it compares the frame before AKA was_on_floor and starts coyote timer
+	if was_on_floor and !is_on_floor():
+		$CoyoteTimer.start()
