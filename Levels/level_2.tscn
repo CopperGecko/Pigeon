@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=4 uid="uid://bouvgsi6u3oau"]
 
-[ext_resource type="Script" uid="uid://cxyncyw1cekwa" path="res://Levels/levels.gd" id="1_ifv3e"]
+[ext_resource type="Script" uid="uid://cxyncyw1cekwa" path="res://Levels/Universals/levels.gd" id="1_ifv3e"]
 [ext_resource type="PackedScene" uid="uid://c6s3yjl7hgifr" path="res://Player/player.tscn" id="1_ltrjs"]
-[ext_resource type="TileSet" uid="uid://ro5jpofunyqj" path="res://Levels/TileSet Test 1.tres" id="3_arsda"]
-[ext_resource type="PackedScene" uid="uid://c4ubpjsjuvova" path="res://Levels/parallax_background.tscn" id="4_dgq3b"]
+[ext_resource type="TileSet" uid="uid://ro5jpofunyqj" path="res://Levels/Universals/TileSet Test 1.tres" id="3_arsda"]
+[ext_resource type="PackedScene" uid="uid://c4ubpjsjuvova" path="res://Levels/Universals/parallax_background.tscn" id="4_dgq3b"]
 
 [sub_resource type="Animation" id="Animation_syshm"]
 resource_name = "Fade in"
