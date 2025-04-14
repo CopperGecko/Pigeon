@@ -1,6 +1,9 @@
 extends ColorRect
 
 
+var save_path = "user://variable.save"
+
+
 # creating the variables to each screen
 @onready var main: VBoxContainer = $CenterContainer/PanelContainer/MarginContainer/MainMenu
 @onready var levels: HBoxContainer = $CenterContainer/PanelContainer/MarginContainer/LevelsMenu
@@ -22,7 +25,10 @@ var all_levels = {
 
 func _ready() -> void:
 	# makes the physics really smooth
-	Engine.physics_ticks_per_second = DisplayServer.screen_get_refresh_rate()
+	Engine.physics_ticks_per_second = int(DisplayServer.screen_get_refresh_rate())
+	
+	# loads the players saved levels_unlock
+	load_data()
 	
 	# updates the start_next button
 	start_next()
@@ -63,6 +69,9 @@ func _on_levels_button_pressed() -> void:
 
 # leaves the game / full close
 func _on_quit_button_pressed() -> void:
+	# saves the levels_unlock for later use
+	save()
+	
 	# sends you back to the website before
 	JavaScriptBridge.eval("window.location.href='https://stunning-telegram-7x547wvpgvv3wrj4-8080.app.github.dev/uses.html'")
 	get_tree().quit()
@@ -122,6 +131,7 @@ func start_next():
 	if levels_unlock == 1:
 		# very first level
 		find_child("Start_NextButton").text = "Start"
+		find_child("Start_NextButton").disabled = false
 	elif  levels_unlock > all_levels.size(): 
 		# final level
 		find_child("Start_NextButton").text = "Completed"
@@ -129,6 +139,7 @@ func start_next():
 	else: 
 		# anywhere in between
 		find_child("Start_NextButton").text = "Next"
+		find_child("Start_NextButton").disabled = false
 
 
 # when the level is completed it handles returning to main menu
@@ -141,3 +152,17 @@ func level_done(why):
 		start_next()
 	
 	gen_levels()
+
+
+func save():
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
+	file.store_var(levels_unlock)
+
+
+func load_data():
+	if FileAccess.file_exists(save_path):
+		var file = FileAccess.open(save_path, FileAccess.READ)
+		levels_unlock = file.get_var(levels_unlock)
+	else:
+		print("No Data Saved...")
+		levels_unlock = 1
