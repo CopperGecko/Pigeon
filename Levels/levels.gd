@@ -7,10 +7,9 @@ func _enter_tree() -> void:
 	$AnimationPlayer.play("Fade in")
 	$ParallaxBackground/AnimationPlayer.play("Fade in")
 
-
 func _process(delta: float) -> void:
 	# handles when you tell it to go back
-	if Input.is_action_just_pressed("esc"):
+	if Input.is_action_just_pressed("esc") or find_child("Player").position.y > 1000:
 		# ungrabs mouse
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		
