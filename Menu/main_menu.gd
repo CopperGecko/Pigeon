@@ -155,6 +155,10 @@ func level_done(why):
 		levels_unlock = int(str(get_parent().get_child(1).name).trim_prefix("Level")) + 1
 		start_next()
 	
+	# saves the level you have unlocked after completing a level
+	save()
+	
+	# updates the levels screen to match levels unlocked
 	gen_levels()
 
 

@@ -3,9 +3,11 @@ extends CharacterBody2D
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
-
 const SPEED := 300.0
 const JUMP_VELOCITY := -550.0
+
+var jump_buffer := false
+var jump_buffer_time := 0.2
 
 func _ready() -> void:
 	# sets up the camera becasue of how the level system works
@@ -22,10 +24,19 @@ func _physics_process(delta: float) -> void:
 			anim.play("Jump_up")
 		elif velocity.y > 0:
 			anim.play("Fall_down")
+	else:
+		# checks if jump has been buffered if you are pressing jump to avoid double height
+		if jump_buffer and (Input.is_action_pressed("jump") or Input.is_action_just_released("jump")):
+			velocity.y = JUMP_VELOCITY
+			jump_buffer = false
 	
 	# handle jumping
-	if Input.is_action_just_pressed("jump") and (is_on_floor() or !$CoyoteTimer.is_stopped()):
-		velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_pressed("jump"):
+		if is_on_floor() or !$CoyoteTimer.is_stopped():
+			velocity.y = JUMP_VELOCITY
+		else:
+			jump_buffer = true
+			get_tree().create_timer(jump_buffer_time).timeout.connect(on_jump_buffer_timeout)
 	
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("ui_left", "ui_right")
@@ -63,5 +74,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	# after move and slide it compares the frame before AKA was_on_floor and starts coyote timer
-	if was_on_floor and !is_on_floor():
+	if was_on_floor and !is_on_floor() and !Input.is_action_just_pressed("jump"):
 		$CoyoteTimer.start()
+
+
+func on_jump_buffer_timeout():
+	jump_buffer = false
