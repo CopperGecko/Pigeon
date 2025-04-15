@@ -3,6 +3,10 @@ extends Node2D
 
 # when you enter it plays the fade in animation
 func _enter_tree() -> void:
+	# hides mouse
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	
+	# fade in animation
 	visible = false
 	$AnimationPlayer.play("Fade in")
 	$ParallaxBackground/AnimationPlayer.play("Fade in")
@@ -10,9 +14,6 @@ func _enter_tree() -> void:
 func _process(delta: float) -> void:
 	# handles when you tell it to go back
 	if Input.is_action_just_pressed("esc") or find_child("Player").position.y > 1000:
-		# ungrabs mouse
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		
 		# plays animiation of fade out while leaving
 		$AnimationPlayer.play("Fade out")
 		$ParallaxBackground/AnimationPlayer.play("Fade out")

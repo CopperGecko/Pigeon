@@ -1,7 +1,7 @@
 extends ColorRect
 
 
-var save_path = "user://variable.save"
+var save_path = "user://levels_unlocked.save"
 
 
 # creating the variables to each screen
@@ -144,6 +144,10 @@ func start_next():
 
 # when the level is completed it handles returning to main menu
 func level_done(why):
+	# when level done reveals mouse
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
+	# fades in main menu
 	$AnimationPlayer.play("Fade in")
 	
 	# if the reason for leaving is the level is complete then it updates the levels unlocked
