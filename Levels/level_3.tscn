@@ -1,0 +1,101 @@
+[gd_scene load_steps=9 format=4 uid="uid://ikhlh46egwv7"]
+
+[ext_resource type="Script" uid="uid://cxyncyw1cekwa" path="res://Levels/Universals/levels.gd" id="1_absw3"]
+[ext_resource type="PackedScene" uid="uid://c6s3yjl7hgifr" path="res://Player/player.tscn" id="2_padch"]
+[ext_resource type="TileSet" uid="uid://ro5jpofunyqj" path="res://Levels/Universals/TileSet Test 1.tres" id="3_uwxw1"]
+[ext_resource type="PackedScene" uid="uid://c4ubpjsjuvova" path="res://Levels/Universals/parallax_background.tscn" id="4_ay5qi"]
+
+[sub_resource type="Animation" id="Animation_syshm"]
+resource_name = "Fade in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_3mhv4"]
+resource_name = "Fade out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rf6l5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_syshm"]
+_data = {
+&"Fade in": SubResource("Animation_syshm"),
+&"Fade out": SubResource("Animation_3mhv4"),
+&"RESET": SubResource("Animation_rf6l5")
+}
+
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_absw3")
+
+[node name="Player" parent="." instance=ExtResource("2_padch")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(16, 16)
+tile_map_data = PackedByteArray("AAD7/wEAAAAaAAEAAAD7/wMAAAAVAAAAAAD7/wUAAAAfAAEAAAD8/wEAAAAKAAEAAAD8/wUAAAAEAAAAAAD9/wEAAAADAAEAAAD9/wUAAAAEAAAAAAD+/wEAAAAEAAEAAAD+/wIAAAAMAAAAAAD+/wMAAAARAAEAAAD+/wUAAAAXAAEAAAD//wEAAAAEAAAAAAD//wUAAAAEAAAAAAAAAAEAAAAKAAEAAAAAAAMAAAAaAAAAAAAAAAUAAAAKAAEAAAABAAEAAAAMAAEAAAABAAUAAAAQAAEAAAACAAEAAAAKAAEAAAACAAUAAAAPAAEAAAADAAEAAAAMAAEAAAADAAIAAAAVAAAAAAADAAMAAAAGAAEAAAADAAUAAAAKAAEAAAAEAAEAAAAEAAAAAAAEAAUAAAAQAAEAAAAFAAEAAAAFAAEAAAAFAAIAAAAVAAAAAAAFAAMAAAAVAAAAAAAFAAUAAAAPAAEAAAAGAAEAAAAKAAEAAAAGAAUAAAAEAAAAAAAHAAEAAAAEAAAAAAAHAAUAAAAEAAAAAAAIAAEAAAAMAAEAAAAIAAIAAAAVAAAAAAAIAAMAAAAWAAEAAAAIAAQAAAAVAAAAAAAIAAUAAAAXAAEAAAAJAAEAAAAEAAAAAAAJAAUAAAAEAAAAAAAKAAEAAAADAAEAAAAKAAIAAAANAAAAAAAKAAMAAAAPAAAAAAAKAAUAAAAKAAEAAAD7/wIAAAAVAAAAAAD7/wQAAAAVAAAAAAD9/wIAAAANAAAAAAD9/wMAAAAPAAAAAAD+/wQAAAAVAAAAAAABAAIAAAAVAAAAAAABAAMAAAAWAAEAAAABAAQAAAAYAAAAAAACAAQAAAAHAAAAAAAEAAQAAAAGAAAAAAAHAAMAAAAaAAAAAAALAAEAAAAEAAEAAAALAAIAAAAMAAAAAAALAAMAAAARAAEAAAALAAQAAAAVAAAAAAALAAUAAAAXAAEAAAAMAAEAAAAEAAAAAAAMAAUAAAAEAAAAAAANAAEAAAAFAAEAAAANAAIAAAAVAAAAAAANAAMAAAAVAAAAAAANAAQAAAAVAAAAAAANAAUAAAAXAAEAAAAOAAEAAAAEAAAAAAAOAAUAAAAKAAEAAAAPAAEAAAAMAAEAAAAPAAIAAAAVAAAAAAAPAAMAAAAVAAAAAAAPAAQAAAAVAAAAAAAPAAUAAAAXAAEAAAAFAAQAAAATAAEAAAAQAAUAAAAEAAAAAAARAAQAAAAVAAAAAAARAAUAAAAAAAIAAAAQAAEAAAAEAAAAAAARAAEAAAAIAAEAAAARAAIAAAAVAAAAAAARAAMAAAAVAAAAAAARAAAAAAANAAAAAAARAP//AAANAAAAAAARAP7/AAAGAAAAAAASAP7/AAABAAAAAAATAP7/AAAHAAAAAAATAP//AAAMAAAAAAATAAAAAAAMAAAAAAASAP//AAAIAAAAAAASAAAAAAAIAAAAAAASAAEAAAAQAAAAAAATAAEAAAAOAAAAAAAbAP7/AAAaAAAAAAAdAP7/AAAZAAAAAAAcAP7/AAAEAAAAAAAmAP7/AAAaAAAAAAAnAP7/AAAKAAEAAAAoAP7/AAAZAAAAAAAVAPb/AAAVAAAAAAAVAPX/AAAVAAAAAAAVAPP/AAAUAAAAAAAVAPT/AAAVAAEAAAAWAPT/AAAZAAAAAAAjAPP/AAAZAAAAAAAiAPP/AAAKAAEAAAAhAPP/AAAaAAEAAAAhAPT/AAAAAAIAAAAgAPT/AAAaAAEAAAAgAPX/AAAVAAAAAAAgAPb/AAAfAAEAAAAhAPf/AAAfAAEAAAAiAPf/AAAEAAAAAAAjAPf/AAAZAAAAAAAhAPb/AAAZAAEAAAAXAPX/AAARAAAAAAAVAPf/AAAGAAEAAAAYAPb/AAAaAAAAAAAZAPf/AAAGAAEAAAAZAPb/AAAWAAEAAAAZAPX/AAAVAAAAAAAZAPT/AAAVAAAAAAAZAPP/AAAUAAAAAAA=")
+tile_set = ExtResource("3_uwxw1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_syshm")
+}
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("4_ay5qi")]

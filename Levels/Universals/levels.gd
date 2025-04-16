@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 		queue_free()
 	
 	# if you fall out of bounds then it returns you
-	if find_child("Player").position.y > 1000:
+	if find_child("Player").position.y > 1000 or Input.is_action_just_pressed("restart"):
 		# fades out
 		$AnimationPlayer.play("Fade out")
 		$ParallaxBackground/AnimationPlayer.play("Fade out")

@@ -16,10 +16,13 @@ var levels_open := false
 var level_done_menu := false
 @export var levels_unlock := 1
 
-# level number, path to level
+
+# all levels as a dictionary
+# level number, level path
 var all_levels = {
-	"path1": preload("res://Levels/level_1.tscn"),
-	"path2": preload("res://Levels/level_2.tscn")
+	"level1" : [1, preload("res://Levels/level_1.tscn")],
+	"level2" : [2, preload("res://Levels/level_2.tscn")],
+	"level3" : [3, preload("res://Levels/level_3.tscn")]
 }
 
 
@@ -55,10 +58,7 @@ func _process(delta: float) -> void:
 
 # plays the most recently unlocked level, if the unlocked level is after the last level then it just plays last level
 func _on_start_next_button_pressed() -> void:
-	if levels_unlock > all_levels.size():
-		level_buttons(all_levels["path" + str(all_levels.size())])
-	else:
-		level_buttons(all_levels["path" + str(levels_unlock)])
+	level_buttons(all_levels.keys()[levels_unlock - 1])
 
 
 # opens the level select page
@@ -70,7 +70,7 @@ func _on_levels_button_pressed() -> void:
 # leaves the game / full close
 func _on_quit_button_pressed() -> void:
 	# saves the levels_unlock for later use
-	save()
+	save_data()
 	
 	# sends you back to the website before
 	JavaScriptBridge.eval("window.location.href='https://stunning-telegram-7x547wvpgvv3wrj4-8080.app.github.dev/uses.html'")
@@ -85,6 +85,8 @@ func _on_back_button_pressed() -> void:
 
 
 func gen_levels():
+	save_data()
+	
 	# removes all test button children
 	for child in level_scroll_container.get_child_count():
 		level_scroll_container.get_child(child).queue_free()
@@ -93,14 +95,14 @@ func gen_levels():
 	for lvls in all_levels:
 		# makes the button and gets the number
 		var new_button = Button.new()
-		var level_num = lvls.trim_prefix("path")
+		var level_num = all_levels[lvls][0]
 		
 		# makes it a child of the scroll container
 		level_scroll_container.add_child(new_button)
 		
 		# sets the proper settings, horizontal fill, text, and font/size
 		new_button.size_flags_horizontal = Control.SIZE_FILL
-		new_button.text = level_num
+		new_button.text = str(level_num)
 		new_button.theme = preload("res://Menu/main_font.tres")
 		
 		# checks to see if you have beaten it and changes color and availibility as so
@@ -113,7 +115,7 @@ func gen_levels():
 			new_button.disabled = true
 		
 		# connects each button to the pressed function to bring you to the proper level
-		new_button.connect("pressed", level_buttons.bind(all_levels[lvls]))
+		new_button.connect("pressed", level_buttons.bind(lvls))
 
 
 # sends you to the level of your choosing on press
@@ -121,7 +123,7 @@ func level_buttons(path):
 	$CenterContainer/PanelContainer/MarginContainer/MainMenu/Start_NextButton.disabled = true
 	$AnimationPlayer.play("Fade out")
 	await get_tree().create_timer(0.5).timeout
-	var instance = path.instantiate()
+	var instance = all_levels[path][1].instantiate()
 	get_parent().add_child(instance)
 	$CenterContainer/PanelContainer/MarginContainer/MainMenu/Start_NextButton.disabled = false
 
@@ -154,15 +156,13 @@ func level_done(why):
 	if why == "complete":
 		levels_unlock = int(str(get_parent().get_child(1).name).trim_prefix("Level")) + 1
 		start_next()
-	
-	# saves the level you have unlocked after completing a level
-	save()
+		save_data()
 	
 	# updates the levels screen to match levels unlocked
 	gen_levels()
 
 
-func save():
+func save_data():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	file.store_var(levels_unlock)
 
