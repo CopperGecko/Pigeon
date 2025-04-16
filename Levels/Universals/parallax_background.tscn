@@ -203,41 +203,47 @@ _data = {
 }
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
-offset = Vector2(0, -640)
-transform = Transform2D(1, 0, 0, 1, 0, -640)
+offset = Vector2(0, -700)
+transform = Transform2D(1, 0, 0, 1, 0, -700)
 
 [node name="FarBackground" type="ParallaxLayer" parent="."]
-position = Vector2(-500, -250)
 motion_scale = Vector2(0.2, 0.2)
 motion_mirroring = Vector2(1280, 0)
 
 [node name="Back1" type="Sprite2D" parent="FarBackground"]
 modulate = Color(1, 1, 1, 0)
+texture_repeat = 2
 scale = Vector2(10, 15)
 texture = ExtResource("1_o1amn")
 centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 256, 128)
 
 [node name="MidBackground" type="ParallaxLayer" parent="."]
-position = Vector2(-500, -250)
 motion_scale = Vector2(0.4, 0.4)
 motion_mirroring = Vector2(1280, 0)
 
 [node name="Back2" type="Sprite2D" parent="MidBackground"]
 modulate = Color(1, 1, 1, 0)
+texture_repeat = 2
 scale = Vector2(10, 15)
 texture = ExtResource("2_u5tyo")
 centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 256, 128)
 
 [node name="ForeBackground" type="ParallaxLayer" parent="."]
-position = Vector2(-500, -250)
 motion_scale = Vector2(0.8, 0.8)
 motion_mirroring = Vector2(1280, 0)
 
 [node name="Back3" type="Sprite2D" parent="ForeBackground"]
 modulate = Color(1, 1, 1, 0)
+texture_repeat = 2
 scale = Vector2(10, 15)
 texture = ExtResource("3_hmqr6")
 centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 256, 128)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
