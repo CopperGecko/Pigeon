@@ -154,7 +154,9 @@ func level_done(why):
 	
 	# if the reason for leaving is the level is complete then it updates the levels unlocked
 	if why == "complete":
-		levels_unlock = int(str(get_parent().get_child(1).name).trim_prefix("Level")) + 1
+		var done_level = int(str(get_parent().get_child(1).name).trim_prefix("Level")) + 1
+		if levels_unlock < done_level:
+			levels_unlock = done_level
 		start_next()
 		save_data()
 	
