@@ -103,30 +103,6 @@ libraries = {
 offset = Vector2(0, -640)
 transform = Transform2D(1, 0, 0, 1, 0, -640)
 
-[node name="FarBackground" parent="ParallaxBackground" index="0"]
-position = Vector2(-500, -250)
-
-[node name="Back1" parent="ParallaxBackground/FarBackground" index="0"]
-texture_repeat = 0
-region_enabled = false
-region_rect = Rect2(0, 0, 0, 0)
-
-[node name="MidBackground" parent="ParallaxBackground" index="1"]
-position = Vector2(-500, -250)
-
-[node name="Back2" parent="ParallaxBackground/MidBackground" index="0"]
-texture_repeat = 0
-region_enabled = false
-region_rect = Rect2(0, 0, 0, 0)
-
-[node name="ForeBackground" parent="ParallaxBackground" index="2"]
-position = Vector2(-500, -250)
-
-[node name="Back3" parent="ParallaxBackground/ForeBackground" index="0"]
-texture_repeat = 0
-region_enabled = false
-region_rect = Rect2(0, 0, 0, 0)
-
 [node name="Labels" type="Node2D" parent="."]
 position = Vector2(-300, -31)
 
@@ -164,5 +140,3 @@ offset_top = -323.0
 offset_right = -1356.0
 offset_bottom = -300.0
 text = "Up 3 Distance"
-
-[editable path="ParallaxBackground"]
