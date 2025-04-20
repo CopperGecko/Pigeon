@@ -15,6 +15,10 @@ run/main_scene="res://Menu/main_menu.tscn"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/resizable=false
+
 [input]
 
 esc={
@@ -46,4 +50,4 @@ common/physics_ticks_per_second=144
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-environment/defaults/default_clear_color=Color(0.617455, 0.617455, 0.617455, 1)
+environment/defaults/default_clear_color=Color(0.362531, 0.167514, 0.364323, 1)
