@@ -120,11 +120,18 @@ func gen_levels():
 
 # sends you to the level of your choosing on press
 func level_buttons(path):
+	# disables all level buttons so you can have the level open more than once
+	for child in level_scroll_container.get_child_count():
+		level_scroll_container.get_child(child).disabled = true
 	$CenterContainer/PanelContainer/MarginContainer/MainMenu/Start_NextButton.disabled = true
+	
+	# level in procedure
 	$AnimationPlayer.play("Fade out")
 	await get_tree().create_timer(0.5).timeout
 	var instance = all_levels[path][1].instantiate()
 	get_parent().add_child(instance)
+	
+	# turns the start button back on
 	$CenterContainer/PanelContainer/MarginContainer/MainMenu/Start_NextButton.disabled = false
 
 
