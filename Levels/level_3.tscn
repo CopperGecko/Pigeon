@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cxyncyw1cekwa" path="res://Levels/Universals/levels.gd" id="1_absw3"]
 [ext_resource type="PackedScene" uid="uid://c6s3yjl7hgifr" path="res://Player/player.tscn" id="2_padch"]
-[ext_resource type="TileSet" uid="uid://dyldcqmha8b4c" path="res://Levels/Universals/Main Tileset.tres" id="3_absw3"]
+[ext_resource type="TileSet" uid="uid://cfqmu5fuvmoet" path="res://Levels/Universals/Main Tileset.tres" id="3_absw3"]
 [ext_resource type="PackedScene" uid="uid://c4ubpjsjuvova" path="res://Levels/Universals/parallax_background.tscn" id="4_ay5qi"]
 
 [sub_resource type="Animation" id="Animation_syshm"]
@@ -83,7 +83,7 @@ _data = {
 &"RESET": SubResource("Animation_rf6l5")
 }
 
-[node name="Level2" type="Node2D"]
+[node name="Level3" type="Node2D"]
 script = ExtResource("1_absw3")
 
 [node name="Player" parent="." instance=ExtResource("2_padch")]
