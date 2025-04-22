@@ -14,12 +14,13 @@ var save_path = "user://levels_unlocked.save"
 # level menu opened and levels unlocked
 var levels_open := false
 var level_done_menu := false
-@export var levels_unlock := 1
+@export var levels_unlock := 0
 
 
 # all levels as a dictionary
 # level number, level path
 var all_levels = {
+	"level0" : ["tutoral", preload("res://Levels/tutorial.tscn")],
 	"level1" : [1, preload("res://Levels/level_1.tscn")],
 	"level2" : [2, preload("res://Levels/level_2.tscn")],
 	"level3" : [3, preload("res://Levels/level_3.tscn")]
@@ -58,7 +59,7 @@ func _process(delta: float) -> void:
 
 # plays the most recently unlocked level, if the unlocked level is after the last level then it just plays last level
 func _on_start_next_button_pressed() -> void:
-	level_buttons(all_levels.keys()[levels_unlock - 1])
+	level_buttons(all_levels.keys()[levels_unlock])
 
 
 # opens the level select page
@@ -145,6 +146,10 @@ func start_next():
 		# final level
 		find_child("Start_NextButton").text = "Completed"
 		find_child("Start_NextButton").disabled = true
+	elif levels_unlock == 0:
+		# tutorial level
+		find_child("Start_NextButton").text = "Tutorial"
+		find_child("Start_NextButton").disabled = false
 	else: 
 		# anywhere in between
 		find_child("Start_NextButton").text = "Next"
@@ -185,4 +190,4 @@ func load_data():
 		levels_unlock = file.get_var(levels_unlock)
 	else:
 		print("No Data Saved...")
-		levels_unlock = 1
+		levels_unlock = 0
