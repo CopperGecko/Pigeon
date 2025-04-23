@@ -114,7 +114,8 @@ func gen_levels():
 		new_button.text = str(level_num)
 		new_button.theme = preload("res://Menu/main_font.tres")
 		
-		# checks to see if you have beaten it and changes color and availibility as so
+		# checks to see if you have beaten it 
+		# and changes color and availibility as so
 		if int(level_num) < levels_unlock:
 			new_button.modulate = Color(0, 255, 0)
 		elif int(level_num) == levels_unlock:
@@ -123,20 +124,24 @@ func gen_levels():
 			new_button.modulate = Color(255, 0, 0)
 			new_button.disabled = true
 		
-		# connects each button to the pressed function to bring you to the proper level
+		# connects each button to the 
+		# pressed function to bring you to the proper level
 		new_button.connect("pressed", level_buttons.bind(lvls))
 
 
 # sends you to the level of your choosing on press
 func level_buttons(path):
 	# disables all level buttons so you can have the level open more than once
-	for child in level_scroll_container.get_child_count():
-		level_scroll_container.get_child(child).disabled = true
+	if level_scroll_container.get_child_count() > 0:
+		for child in level_scroll_container.get_child_count():
+			level_scroll_container.get_child(child).disabled = true
+	
 	$CenterContainer/PanelContainer/MarginContainer/MainMenu/Start_NextButton.disabled = true
 	
 	# level in procedure
 	$AnimationPlayer.play("Fade out")
 	await get_tree().create_timer(0.5).timeout
+	
 	var instance = all_levels[path][1].instantiate()
 	get_parent().add_child(instance)
 	
