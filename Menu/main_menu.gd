@@ -175,17 +175,21 @@ func level_done(why):
 	# if the reason for leaving is the level is complete then it updates the levels unlocked
 	if why == "complete":
 		# updates the levels_unlocked to be the latest one
-		if find_child("Start_NextButton").text != "Tutorial":
-			var done_level = int(str(get_parent().get_child(1).name).trim_prefix("Level")) + 1
-			if levels_unlock < done_level:
-				levels_unlock = done_level
-		elif find_child("Start_NextButton").text == "Tutorial":
-			if levels_unlock < 1:
-				levels_unlock = 1
+		var done_level = int(str(get_parent().get_child(1).name).trim_prefix("Level")) + 1
+		if levels_unlock < done_level:
+			levels_unlock = done_level
 		
 		# saves all data to be used later
 		start_next()
 		save_data()
+	
+	# checks if the tutorial was done and its all you've done
+	elif why == "tutorial":
+		if levels_unlock <= 0:
+			levels_unlock = 1
+			
+			start_next()
+			save_data()
 	
 	# updates the levels screen to match levels unlocked
 	gen_levels()
@@ -214,8 +218,9 @@ func _on_reset_all_pressed() -> void:
 
 
 func _on_yes_pressed() -> void:
-	levels_unlock = 1
-	gen_levels()
+	if levels_unlock > 0:
+		levels_unlock = 1
+		gen_levels()
 	confirm_reset = false
 
 

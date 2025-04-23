@@ -42,5 +42,9 @@ func unlocked():
 	$AnimationPlayer.play("Fade out")
 	$ParallaxBackground/AnimationPlayer.play("Fade out")
 	await get_tree().create_timer(0.5).timeout
-	get_parent().get_child(0).level_done("complete")
+	if self.name == "Tutorial":
+		get_parent().get_child(0).level_done("tutorial")
+	else:
+		get_parent().get_child(0).level_done("complete")
+	
 	queue_free()

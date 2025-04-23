@@ -84,7 +84,7 @@ _data = {
 &"RESET": SubResource("Animation_rf6l5")
 }
 
-[node name="Level1" type="Node2D"]
+[node name="Tutorial" type="Node2D"]
 script = ExtResource("1_gdvy0")
 
 [node name="Player" parent="." instance=ExtResource("2_hga2d")]
