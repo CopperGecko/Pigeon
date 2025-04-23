@@ -16,6 +16,9 @@ var levels_open := false
 var level_done_menu := false
 @export var levels_unlock := 0
 
+# reset all levels progress
+var confirm_reset = false
+
 
 # all levels as a dictionary
 # level number, level path
@@ -55,6 +58,11 @@ func _process(delta: float) -> void:
 		hide()
 	else:
 		show()
+	
+	if confirm_reset == false:
+		$CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/ResetAll/Confirm.hide()
+	elif confirm_reset == true:
+		$CenterContainer/PanelContainer/MarginContainer/LevelsMenu/LevelsVBox/ResetAll/Confirm.show()
 
 
 # plays the most recently unlocked level, if the unlocked level is after the last level then it just plays last level
@@ -195,3 +203,21 @@ func load_data():
 	else:
 		print("No Data Saved...")
 		levels_unlock = 0
+
+
+
+func _on_reset_all_pressed() -> void:
+	if confirm_reset == false:
+		confirm_reset = true
+	elif confirm_reset == true:
+		confirm_reset = false
+
+
+func _on_yes_pressed() -> void:
+	levels_unlock = 1
+	gen_levels()
+	confirm_reset = false
+
+
+func _on_no_pressed() -> void:
+	confirm_reset = false
