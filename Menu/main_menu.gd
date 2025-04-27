@@ -23,10 +23,13 @@ var confirm_reset = false
 # all levels as a dictionary
 # level number, level path
 var all_levels = {
-	"level0" : ["tutoral", preload("res://Levels/tutorial.tscn")],
+	"level0" : ["tutorial", preload("res://Levels/tutorial.tscn")],
 	"level1" : [1, preload("res://Levels/level_1.tscn")],
 	"level2" : [2, preload("res://Levels/level_2.tscn")],
-	"level3" : [3, preload("res://Levels/level_3.tscn")]
+	"level3" : [3, preload("res://Levels/level_3.tscn")],
+	"level4" : [4, preload("res://Levels/level_4.tscn")],
+	"level5" : [5, preload("res://Levels/level_5.tscn")],
+	"level6" : [6, preload("res://Levels/level_6.tscn")],
 }
 
 
