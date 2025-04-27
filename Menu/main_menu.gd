@@ -31,9 +31,6 @@ var all_levels = {
 
 
 func _ready() -> void:
-	# makes the physics really smooth
-	# Engine.physics_ticks_per_second = int(DisplayServer.screen_get_refresh_rate())
-	
 	# loads the players saved levels_unlock
 	load_data()
 	
