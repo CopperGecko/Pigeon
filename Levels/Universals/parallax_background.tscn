@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://c4ubpjsjuvova"]
 
-[ext_resource type="Texture2D" uid="uid://cg0ed1jot47bi" path="res://Assets/Background Test 1.png" id="1_o1amn"]
-[ext_resource type="Texture2D" uid="uid://tws5yqqrcq81" path="res://Assets/Background Test 2.png" id="2_u5tyo"]
-[ext_resource type="Texture2D" uid="uid://tpwb8l7n4o7j" path="res://Assets/Background Test 3.png" id="3_hmqr6"]
+[ext_resource type="Texture2D" uid="uid://d0hr5dqmqm51c" path="res://Assets/Nico's aart for stuff/mountain layer (3).png" id="1_14aor"]
+[ext_resource type="Texture2D" uid="uid://dwfod5flkl2xv" path="res://Assets/Nico's aart for stuff/cloud layer (2).png" id="2_qoj0w"]
+[ext_resource type="Texture2D" uid="uid://cfb6uq1ksx5ah" path="res://Assets/Nico's aart for stuff/tree layer (1).png" id="3_dxods"]
 
 [sub_resource type="Animation" id="Animation_0urlm"]
 resource_name = "Fade in"
@@ -203,47 +203,49 @@ _data = {
 }
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
-offset = Vector2(0, -700)
-transform = Transform2D(1, 0, 0, 1, 0, -700)
+offset = Vector2(0, -80)
+scale = Vector2(0.225, 0.225)
+transform = Transform2D(0.225, 0, 0, 0.225, 0, -80)
 
 [node name="FarBackground" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.2, 0.2)
-motion_mirroring = Vector2(2560, 0)
+motion_mirroring = Vector2(15360, 0)
 
 [node name="Back1" type="Sprite2D" parent="FarBackground"]
 modulate = Color(1, 1, 1, 0)
 texture_repeat = 2
-scale = Vector2(10, 15)
-texture = ExtResource("1_o1amn")
+scale = Vector2(15, 15)
+texture = ExtResource("1_14aor")
 centered = false
 region_enabled = true
-region_rect = Rect2(0, 0, 256, 128)
+region_rect = Rect2(0, 0, 1536, 256)
 
 [node name="MidBackground" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.4, 0.4)
-motion_mirroring = Vector2(2560, 0)
+motion_mirroring = Vector2(15360, 0)
 
 [node name="Back2" type="Sprite2D" parent="MidBackground"]
 modulate = Color(1, 1, 1, 0)
 texture_repeat = 2
-scale = Vector2(10, 15)
-texture = ExtResource("2_u5tyo")
+scale = Vector2(15, 15)
+texture = ExtResource("2_qoj0w")
 centered = false
 region_enabled = true
-region_rect = Rect2(0, 0, 256, 128)
+region_rect = Rect2(0, 0, 1536, 256)
 
 [node name="ForeBackground" type="ParallaxLayer" parent="."]
+position = Vector2(0, -100)
 motion_scale = Vector2(0.8, 0.8)
-motion_mirroring = Vector2(2560, 0)
+motion_mirroring = Vector2(15360, 0)
 
 [node name="Back3" type="Sprite2D" parent="ForeBackground"]
 modulate = Color(1, 1, 1, 0)
 texture_repeat = 2
-scale = Vector2(10, 15)
-texture = ExtResource("3_hmqr6")
+scale = Vector2(20, 20)
+texture = ExtResource("3_dxods")
 centered = false
 region_enabled = true
-region_rect = Rect2(0, 0, 256, 128)
+region_rect = Rect2(0, 0, 1536, 256)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

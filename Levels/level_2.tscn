@@ -99,5 +99,3 @@ libraries = {
 }
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("4_dgq3b")]
-offset = Vector2(0, -640)
-transform = Transform2D(1, 0, 0, 1, 0, -640)

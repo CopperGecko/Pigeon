@@ -99,10 +99,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_syshm")
 }
 
-[node name="ParallaxBackground" parent="." instance=ExtResource("4_ay5qi")]
-offset = Vector2(0, -640)
-transform = Transform2D(1, 0, 0, 1, 0, -640)
-
 [node name="Labels" type="Node2D" parent="."]
 position = Vector2(-300, -31)
 
@@ -140,3 +136,5 @@ offset_top = -323.0
 offset_right = -1356.0
 offset_bottom = -300.0
 text = "Up 3 Distance"
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("4_ay5qi")]
