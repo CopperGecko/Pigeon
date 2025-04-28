@@ -21,15 +21,19 @@ var confirm_reset = false
 
 
 # all levels as a dictionary
-# level number, level path
+# level name, level path
 var all_levels = {
-	"level0" : ["tutorial", preload("res://Levels/tutorial.tscn")],
-	"level1" : [1, preload("res://Levels/level_1.tscn")],
-	"level2" : [2, preload("res://Levels/level_2.tscn")],
-	"level3" : [3, preload("res://Levels/level_3.tscn")],
-	"level4" : [4, preload("res://Levels/level_4.tscn")],
-	"level5" : [5, preload("res://Levels/level_5.tscn")],
-	"level6" : [6, preload("res://Levels/level_6.tscn")],
+	"level0" : ["Tutorial", preload("res://Levels/tutorial.tscn")],
+	"level1" : ["Level 1: The Basics", preload("res://Levels/level_1.tscn")],
+	"level2" : ["Level 2: Hopper", preload("res://Levels/level_2.tscn")],
+	"level3" : ["Level 3: Acending", preload("res://Levels/level_3.tscn")],
+	"level4" : ["Level 4: Not Quite", preload("res://Levels/level_4.tscn")],
+	"level5" : ["Level 5: Picking Sides", preload("res://Levels/level_5.tscn")],
+	"level6" : ["Level 6: Tunnels", preload("res://Levels/level_6.tscn")],
+	"level7" : ["Level 7: Guess", preload("res://Levels/level_7.tscn")],
+	"level8" : ["Level 8: The Basics Again", preload("res://Levels/level_8.tscn")],
+	"level9" : ["Level 9: Unknown", preload("res://Levels/level_9.tscn")],
+	"level10" : ["Level 10: The Limit", preload("res://Levels/level_10.tscn")]
 }
 
 
@@ -155,7 +159,7 @@ func start_next():
 		# very first level
 		find_child("Start_NextButton").text = "Start"
 		find_child("Start_NextButton").disabled = false
-	elif  levels_unlock > all_levels.size(): 
+	elif  levels_unlock > all_levels.size() - 1: 
 		# final level
 		find_child("Start_NextButton").text = "Completed"
 		find_child("Start_NextButton").disabled = true

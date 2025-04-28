@@ -208,7 +208,7 @@ scale = Vector2(0.225, 0.225)
 transform = Transform2D(0.225, 0, 0, 0.225, 0, -80)
 
 [node name="FarBackground" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0.2, 0.2)
+motion_scale = Vector2(0.2, 0.05)
 motion_mirroring = Vector2(15360, 0)
 
 [node name="Back1" type="Sprite2D" parent="FarBackground"]
@@ -221,7 +221,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 1536, 256)
 
 [node name="MidBackground" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0.4, 0.4)
+motion_scale = Vector2(0.4, 0.1)
 motion_mirroring = Vector2(15360, 0)
 
 [node name="Back2" type="Sprite2D" parent="MidBackground"]
@@ -235,7 +235,7 @@ region_rect = Rect2(0, 0, 1536, 256)
 
 [node name="ForeBackground" type="ParallaxLayer" parent="."]
 position = Vector2(0, -100)
-motion_scale = Vector2(0.8, 0.8)
+motion_scale = Vector2(0.8, 0.2)
 motion_mirroring = Vector2(15360, 0)
 
 [node name="Back3" type="Sprite2D" parent="ForeBackground"]

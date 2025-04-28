@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=4 uid="uid://dmaoaa1gy6g8q"]
+
+[ext_resource type="Script" uid="uid://cxyncyw1cekwa" path="res://Levels/Universals/levels.gd" id="1_k4mr7"]
+[ext_resource type="PackedScene" uid="uid://c6s3yjl7hgifr" path="res://Player/player.tscn" id="2_752rg"]
+[ext_resource type="TileSet" uid="uid://cfqmu5fuvmoet" path="res://Levels/Universals/Main Tileset.tres" id="3_gu58g"]
+[ext_resource type="PackedScene" uid="uid://c4ubpjsjuvova" path="res://Levels/Universals/parallax_background.tscn" id="4_55fqf"]
+
+[sub_resource type="Animation" id="Animation_syshm"]
+resource_name = "Fade in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_3mhv4"]
+resource_name = "Fade out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rf6l5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_syshm"]
+_data = {
+&"Fade in": SubResource("Animation_syshm"),
+&"Fade out": SubResource("Animation_3mhv4"),
+&"RESET": SubResource("Animation_rf6l5")
+}
+
+[node name="Level10" type="Node2D"]
+script = ExtResource("1_k4mr7")
+metadata/_edit_vertical_guides_ = [-2010.0]
+metadata/_edit_horizontal_guides_ = [-2711.0]
+
+[node name="Player" parent="." instance=ExtResource("2_752rg")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(16, 16)
+tile_map_data = PackedByteArray("AAACAAEAAAAIAAIAAAABAAEAAAAGAAAAAAAAAAEAAAADAAAAAAD//wEAAAABAAAAAAD+/wEAAAAPAAEAAAD9/wEAAAATAAAAAAACAAIAAAAMAAIAAAABAAIAAAAGAAEAAAAAAAIAAAACAAMAAAD//wIAAAALAAEAAAD//wMAAAAOAAIAAAAAAAMAAAAQAAIAAAABAAMAAAAMAAIAAAD+/wIAAAAOAAIAAAACAAAAAAAGAAIAAAABAAAAAAAEAAIAAAAGAP//AAAOAAIAAAAGAP7/AAAKAAIAAAAGAP3/AAAEAAIAAAAHAP3/AAACAAAAAAAIAP3/AAAGAAIAAAAIAP7/AAAFAAAAAAAJAP7/AAAGAAIAAAAIAP//AAARAAIAAAAHAP//AAAQAAIAAAAHAP7/AAADAAMAAAAJAP//AAAMAAIAAAAEAPr/AAARAAAAAAADAPr/AAAOAAMAAAADAPn/AAAJAAAAAAD+//n/AAARAAAAAAD9//n/AAAWAAIAAAD8//n/AAAQAAIAAAD7//n/AAAOAAIAAAD7//j/AAAEAAIAAAD8//j/AAABAAAAAAD9//j/AAAGAAIAAAD7//X/AAATAAAAAAD8//X/AAASAAIAAAD9//X/AAAXAAIAAAD+//X/AAAMAAIAAAD9//T/AAAEAAIAAAD+//T/AAAGAAIAAAD+//H/AAASAAIAAAD9//H/AAACAAEAAAD8//H/AAAWAAIAAAD7//H/AAAOAAIAAAD7//D/AAAQAAEAAAD6//D/AAAOAAMAAAD8//D/AAAGAAIAAAD6/+//AAAVAAAAAAD5/+//AAATAAAAAAD///H/AAARAAAAAADz/+r/AAATAAAAAAD0/+r/AAAAAAEAAAD1/+r/AAASAAIAAAD2/+r/AAAXAAIAAAD3/+r/AAAMAAIAAAD3/+n/AAAGAAIAAAD2/+n/AAAEAAIAAAD3/+b/AAADAAEAAAD4/+b/AAARAAAAAAD2/+b/AAAOAAMAAAD2/+X/AAAJAAAAAAD3/+L/AAATAAAAAAD4/+L/AAAXAAIAAAD5/+L/AAAQAAIAAAD6/+L/AAAQAAIAAAD7/+L/AAAMAAIAAAD8/+H/AAARAAAAAAD7/+H/AAAbAAEAAAD6/+H/AAAGAAAAAAD5/+H/AAACAAAAAAD4/+H/AAAEAAIAAAD7/+D/AAAGAAIAAAD6/+D/AAAEAAIAAAAAAN7/AAAEAAIAAAABAN7/AAAAAAAAAAACAN7/AAABAAAAAAADAN7/AAAGAAIAAAADAN//AAAMAAIAAAACAN//AAAQAAIAAAABAN//AAAHAAEAAAAAAN//AAAKAAIAAAABAOD/AAAMAAIAAAAAAOD/AAAOAAIAAAAKAOT/AAAEAAIAAAALAOT/AAAAAAAAAAALAOX/AAAQAAIAAAAMAOX/AAAMAAIAAAANAOT/AAAMAAIAAAAMAOT/AAAIAAMAAAAKAOX/AAAOAAIAAAAMAOP/AAAEAAIAAAANAOP/AAAGAAIAAAAPAOD/AAATAAAAAAAQAOD/AAAAAAEAAAARAOD/AAAQAAMAAAATAN//AAARAAAAAAASAN//AAACAAEAAAARAN//AAAXAAAAAAAUANz/AAASAAIAAAATANz/AAASAAIAAAASANz/AAADAAEAAAARANz/AAABAAEAAAAVANz/AAAXAAIAAAAWANz/AAAMAAIAAAAWANv/AAAGAAIAAAAVANv/AAAEAAIAAAAQANz/AAATAAAAAAAPANj/AAARAAAAAAAOANj/AAAWAAIAAAANANj/AAARAAIAAAAMANj/AAAOAAIAAAAMANf/AAAQAAEAAAANANf/AAABAAAAAAAOANf/AAAGAAIAAAALANf/AAAWAAIAAAALANb/AAAGAAIAAAAKANb/AAAEAAIAAAAKANf/AAAOAAIAAAABANb/AAAGAAIAAAAAANb/AAAAAAQAAAD//9b/AAABAAQAAAD+/9b/AAAKAAIAAAD+/9f/AAAOAAIAAAD//9f/AAARAAIAAAAAANf/AAAQAAIAAAABANf/AAAMAAIAAAD//9X/AAAAAAQAAAD+/9X/AAAEAAIAAADw/+3/AAAEAAIAAADw/+7/AAAOAAIAAADx/+3/AAACAAAAAADx/+7/AAARAAIAAADy/+7/AAAWAAIAAADy/+3/AAAGAAIAAADz/+7/AAARAAAAAAA=")
+tile_set = ExtResource("3_gu58g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_syshm")
+}
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("4_55fqf")]
