@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://c6s3yjl7hgifr"]
 
 [ext_resource type="Script" uid="uid://drp70uyekd8gf" path="res://Player/player.gd" id="1_c4iuk"]
-[ext_resource type="Texture2D" uid="uid://ct6fh6ug6pdef" path="res://Assets/Spritesheet Test 1.png" id="2_4ntmi"]
+[ext_resource type="Texture2D" uid="uid://cqxtsditsmmto" path="res://Assets/Nico's aart for stuff/Pigeon Spritesheet.png" id="3_btcbx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hvfyp"]
 radius = 20.0
@@ -11,56 +11,53 @@ height = 60.0
 radius = 25.0
 height = 70.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x3vf3"]
-atlas = ExtResource("2_4ntmi")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ntmi"]
+atlas = ExtResource("3_btcbx")
 region = Rect2(16, 32, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ntmi"]
-atlas = ExtResource("2_4ntmi")
+[sub_resource type="AtlasTexture" id="AtlasTexture_btcbx"]
+atlas = ExtResource("3_btcbx")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_btcbx"]
-atlas = ExtResource("2_4ntmi")
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwnis"]
+atlas = ExtResource("3_btcbx")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gwnis"]
-atlas = ExtResource("2_4ntmi")
+[sub_resource type="AtlasTexture" id="AtlasTexture_k53q1"]
+atlas = ExtResource("3_btcbx")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k53q1"]
-atlas = ExtResource("2_4ntmi")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhl08"]
+atlas = ExtResource("3_btcbx")
 region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fhl08"]
-atlas = ExtResource("2_4ntmi")
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3vf3"]
+atlas = ExtResource("3_btcbx")
 region = Rect2(0, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vtle1"]
-atlas = ExtResource("2_4ntmi")
+atlas = ExtResource("3_btcbx")
 region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_od3ui"]
-atlas = ExtResource("2_4ntmi")
+atlas = ExtResource("3_btcbx")
 region = Rect2(16, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_00tjw"]
-atlas = ExtResource("2_4ntmi")
+atlas = ExtResource("3_btcbx")
 region = Rect2(32, 16, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l8h54"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x3vf3")
+"texture": SubResource("AtlasTexture_4ntmi")
 }],
 "loop": true,
 "name": &"Fall_down",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4ntmi")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_btcbx")
 }, {
@@ -69,14 +66,17 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k53q1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhl08")
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 2.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fhl08")
+"texture": SubResource("AtlasTexture_x3vf3")
 }],
 "loop": true,
 "name": &"Jump_up",
@@ -116,9 +116,9 @@ target_position = Vector2(0, 0)
 collision_mask = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(3.75, 3.75)
+scale = Vector2(4.25, 4.25)
 sprite_frames = SubResource("SpriteFrames_l8h54")
-animation = &"Run"
+animation = &"Idle"
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.15
